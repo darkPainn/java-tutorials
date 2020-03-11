@@ -1,0 +1,32 @@
+QUERYING A TABLE IS STRAIGHT FORWARD:
+1 - SPECIFY THE COLUMNS YOU ARE INTERESTED IN
+2 - JOIN ANY OTHER TABLES THAT ARE NEEDED
+3 - FILTER THE SELECTION USING A 'WHERE' CLAUSE
+4 - FINALLY ORDER THE RESULT USING 'ORDER BY'
+5 - SEMICOLON
+
+
+tables are:
+albums   artists  songs
+
+ORDER BY
+* select * from albums order by columnName COLLATE NOCASE ASC-DESC; -> COLLATE NOCASE means ignore case when ordering so that lower case ones don't appear at the end
+* select * from albums order by column1, column2... COLLATE NOCASE ASC-DESC; -> will order on col1 then 2 etc.
+
+
+JOIN
+* SELECT songs.track, songs.title, albums.name FROM songs JOIN albums ON songs.album = albums._id;
+track			|title							|name
+2				|I Can't Quit You Baby			|BBC Sessions
+1				|Taking the Easy Way Out Again	|Rhinos Winos and Lunatics
+6				|Let's Have A Party				|Private Practice
+7				|Flaming Telepaths				|Champions Of Rock
+
+INNER JOIN
+select songs.track, songs.title, albums.name as album_name FROM songs inner join albums on songs.album = albums._id limit 5;
+
+select artists.name, albums.name, songs.track, songs.title from songs
+inner join albums on songs.album = albums._id
+inner join artists on albums.artist = artists._id
+order by artists.name, albums.name, songs.track;
+

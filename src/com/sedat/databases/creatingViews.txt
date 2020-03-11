@@ -1,0 +1,22 @@
+
+
+tables are:
+albums   artists  songs
+CREATE TABLE songs (_id INTEGER PRIMARY KEY, track INTEGER, title TEXT NOT NULL, album INTEGER);
+CREATE TABLE albums (_id INTEGER PRIMARY KEY, name TEXT NOT NULL, artist INTEGER);
+CREATE TABLE artists (_id INTEGER PRIMARY KEY, name TEXT NOT NULL);
+
+
+//CREATE A VIEW
+CREATE VIEW artists_list AS
+SELECT artists.name, albums.name, songs.track, songs.title FROM songs
+INNER JOIN albums ON songs.album = albums._id
+INNER JOIN artists ON albums.artist = artists._id
+ORDER BY artists.name, albums.name songs.track;
+
+/USE THE VIEW
+SELECT * FROM artists_list;
+
+//DELETE THE VIEW
+DROP VIEW artists_list;
+

@@ -1,0 +1,11 @@
+ * Sqlite is a tool allows us to create and manipulate in-memory databases.
+ * Some common commands:
+ * 1 - sqlite3 test.db opens the shell with the test db
+ * 2 - .headers on turns the headers on for table columns
+ * 3 - create table contacts (name text, phone integer, email text);
+ * 4 - insert into contacts (name, phone, email) values('doe',124454,'doe@email.com');
+ * 5 - .q to quite the current session
+ * 6 - .backup <optiaonal db name - if u dont specify current db is assumed> backupname
+ * 7 - .restore backupname - will make current db same as backupname db
+ * 8 - .tables -> lists all the tables in the db
+ * 9 - .schema prints the commands used to create the tables in the db so that u can figure out the schema

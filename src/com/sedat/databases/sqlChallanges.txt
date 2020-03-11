@@ -1,0 +1,33 @@
+
+TABLES:
+songs   (track INTEGER, title TEXT NOT NULL, album INTEGER);
+albums  (name TEXT NOT NULL, artist INTEGER);
+artists (name TEXT NOT NULL);
+
+CHALLANGES
+1) select the titles of all the songs on the album "Forbidden"
+select songs.title from songs inner join albums on songs.album = albums._id where albums.name = "Forbidden";
+
+2)Repeat the previous query but this time display the songs in track order. Include the track number in the query to confirm that it worked
+select songs.title, songs.track from songs inner join albums on songs.album = albums._id where albums.name = "Forbidden" order by songs.track;
+
+3) Display all the songs for the band "Deep Purple"
+select songs.title from songs inner join albums on songs.album = albums._id inner join artists on albums.artist = artists._id where artists.name="Deep Purple";
+
+4) Rename the band "Mehitabel" to "One Kitten" 
+update artists set name="One Kitten" where name="Mehitabel";
+
+5)Check that the record was correctly renamed
+select * from artists where name="One Kitten";
+
+6) Select the titles of all the songs by Aerosmith in alphabetic order Include only the title in the output
+select songs.title from songs inner join albums on songs.album = albums._id inner join artists on albums.artist = artists._id where artists.name="Aerosmith" order by songs.title;
+
+7) Replace the column you used in previous answer with count(title) to get just the number of the songs
+select count(songs.title) from songs inner join albums on songs.album = albums._id inner join artists on albums.artist = artists._id where artists.name="Aerosmith" order by songs.title;
+
+8) Repeat step 6 by exluding the duplicates - only unique song titles
+select DISTINCT songs.title from songs inner join albums on songs.album = albums._id inner join artists on albums.artist = artists._id where artists.name="Aerosmith" order by songs.title;
+
+9) retrieve only the count for step 8
+select count(distinct songs.title) from songs inner join albums on songs.album = albums._id inner join artists on albums.artist = artists._id where artists.name="Aerosmith" order by songs.title;
