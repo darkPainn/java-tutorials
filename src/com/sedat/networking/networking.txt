@@ -1,0 +1,30 @@
+/**
+ * @author sedat.turkoglu
+ *
+ * A network is a system of computers connected together so they can share resources and communicate with each other.
+ * Networking refers to how the connected computers communicate.
+ * 
+ * These days networking usually refers to the Internet, but computers can communicate with each other within a private network as well. 
+ * Generally, a computer will have one physical connection to a network, and anything sent to the computer from other hosts
+ * on the network will arrive through that connection. But it is also possible that the same computer will have multiple applications running 
+ * at the same time, such as a web browser, a chat program, streaming music etc. In this situation the connection is still a single connection
+ * but each application has its own port which is used to route the arriving data to the corresponding application that consumes it.
+ * 
+ * Internet Protocol (IP) is used over the Internet to route data. Two applications running on the same host can use TCP/IP to communicate with each other.
+ * When the client and server are both on the same host, usually the IP address is 127.0.0.1 which is refereed to as localhost is used to identify the host.
+ * Transmission Control Protocol (TCP) establishes a two-way connection between hosts and this connection is reliable in the sense that two
+ * hosts talk to each other. When TCP is used with Internet addresses, you get TCP/IP which uses the client-server model.
+ * TCP/IP communication events sequence:
+ * 1-Client opens a connection to the server
+ * 2-client sends a request to the server
+ * 3-server sends a response to the client
+ * 4-client closes the connection
+ * 
+ * java.net package contains the classes you should use to establish connections between computers and send messages between them.
+ * The package contains two sets of APIs: the low-level API and the high-level API. When working with the low-level API, you need to be more
+ * aware of the networking concepts, and you'll use sockets to establish connections, send requests and receive responses.
+ * A socket is one end point of a two-way connection, the client will have a socket and the server will have a socket. When multiple clients connects to the
+ * same server, they will all use the same port but each will have its own socket. You'll use Socket class for the client socket and ServerSocket
+ * for the server's socket. All you have to do is provide the IP address and the port number when using a socket.
+ * 
+ */
